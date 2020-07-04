@@ -20,9 +20,20 @@ router.get('/', (req, res, next) => {
 						   messages: messages });
 });
 
-/* POST to new messages */
+/* POST home page. */
+router.post('/', (req, res, next) => {
+	res.redirect('/new');
+});
+
+/* GET to new messages */
 router.get('/new', (req, res, next) => {
 	res.render('message_form', { title: 'New Message' });
+});
+
+/* POST to new messages */
+router.post('/new', (req, res, next) => {
+	 messages.push({text: req.body.message, user: req.body.user, added: new Date()});
+	res.redirect('/');
 });
 
 module.exports = router;

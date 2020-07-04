@@ -3,6 +3,9 @@ extends layout
 block content
 	h1= title
 	for message in messages
-		h3 #{message.user}
+		h3(style="color: #") #{message.user}
 		p #{message.text}
 		p #{message.added}
+
+	form(method='POST' action='')
+		button(type='submit') New Message
