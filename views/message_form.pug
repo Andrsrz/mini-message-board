@@ -12,8 +12,3 @@ block content
 			textarea#message.form-control(type='textarea', placeholder='Message' name='message'
 			rows='3' required='true' style='resize: vertical')
 		button(type='submit') Submit
-
-	if errors
-		ul
-			for error in errors
-				li!= error.msg
