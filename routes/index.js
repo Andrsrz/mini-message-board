@@ -15,9 +15,14 @@ const messages = [
 ];
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Messages',
-						messages: messages });
+router.get('/', (req, res, next) => {
+	 res.render('index', { title: 'Message Board',
+						   messages: messages });
+});
+
+/* POST to new messages */
+router.get('/new', (req, res, next) => {
+	res.render('message_form', { title: 'New Message' });
 });
 
 module.exports = router;
