@@ -1,16 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 const messages = [
 	{
 		text: "Hi, there!",
 		user: "Andres",
-		added: new Date()
+		added: moment(new Date()).format('YYYY-MM-DD')
 	},
 	{
 		text: "Hello, Express!",
-		user: "Charles",
-		added: new Date()
+		user: "Arturo",
+		added: moment(new Date()).format('YYYY-MM-DD')
 	}
 ];
 
@@ -32,8 +33,12 @@ router.get('/new', (req, res, next) => {
 
 /* POST to new messages */
 router.post('/new', (req, res, next) => {
-	 messages.push({text: req.body.message, user: req.body.user, added: new Date()});
-	res.redirect('/');
+		messages.push({
+			text: req.body.message,
+			user: req.body.user,
+			added: moment(new Date()).format('YYYY-MM-DD')
+		});
+		res.redirect('/');
 });
 
 module.exports = router;
